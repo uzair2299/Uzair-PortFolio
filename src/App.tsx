@@ -87,12 +87,6 @@ const Footer: React.FC = () => {
           <a href={profileData.linkedin} target="_blank" rel="noreferrer" style={{ fontSize: "0.85rem", color: "var(--text-muted)" }} className="footer-link">
             LinkedIn
           </a>
-          <a href={profileData.github} target="_blank" rel="noreferrer" style={{ fontSize: "0.85rem", color: "var(--text-muted)" }} className="footer-link">
-            GitHub
-          </a>
-          <a href={`mailto:${profileData.email}`} style={{ fontSize: "0.85rem", color: "var(--text-muted)" }} className="footer-link">
-            Email
-          </a>
         </div>
 
         <hr style={{ border: "none", borderTop: "1px solid var(--border-glass)", width: "100%", maxWidth: "400px" }} />

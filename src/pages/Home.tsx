@@ -13,7 +13,6 @@ import {
   achievementsData,
   certificationsData,
   learningData,
-  testimonialsData,
   Project,
   BlogPost
 } from "../data/portfolioData";
@@ -24,8 +23,6 @@ import {
   Database,
   Cloud,
   Settings,
-  ChevronLeft,
-  ChevronRight,
   Sparkles,
   Download,
   PhoneCall,
@@ -43,8 +40,7 @@ export const Home: React.FC = () => {
   const [projectFilter, setProjectFilter] = useState<string>("all");
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projectsData);
 
-  // Testimonials carousel state
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
 
   // Typewriter effect state
   const words = ["Enterprise Full Stack Developer", "CTI & CRM Integration Engineer", "Angular & Spring Boot Architect"];
@@ -93,14 +89,7 @@ export const Home: React.FC = () => {
     }
   }, [projectFilter]);
 
-  // Testimonials rotation
-  const nextTestimonial = () => {
-    setActiveTestimonial((prev) => (prev + 1) % testimonialsData.length);
-  };
 
-  const prevTestimonial = () => {
-    setActiveTestimonial((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length);
-  };
 
   // Skill category icons resolver
   const getSkillCategoryIcon = (categoryName: string) => {
@@ -147,6 +136,43 @@ export const Home: React.FC = () => {
           transition={{ duration: 0.6 }}
           style={{ position: "relative", zIndex: 10, maxWidth: "800px" }}
         >
+          {/* Profile Photo Container */}
+          <div
+            style={{
+              position: "relative",
+              width: "150px",
+              height: "150px",
+              margin: "0 auto 24px",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                inset: "-4px",
+                borderRadius: "50%",
+                background: "var(--gradient-accent)",
+                zIndex: 1,
+                opacity: 0.8,
+                filter: "blur(2px)",
+              }}
+              className="animate-pulse-slow"
+            />
+            <img
+              src="/profile.png"
+              alt="Uzair Anwar"
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                objectFit: "cover",
+                border: "4px solid var(--bg-primary)",
+                zIndex: 2,
+                boxShadow: "var(--shadow-lg)",
+              }}
+            />
+          </div>
+
           <span
             className="badge badge-accent"
             style={{
@@ -650,87 +676,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 9. Testimonials Carousel Section */}
-      <section id="testimonials">
-        <h2 className="section-title">Testimonials</h2>
-        <p className="section-subtitle">Quotes from technical leaders and colleagues I've collaborated with.</p>
 
-        <div style={{ maxWidth: "750px", margin: "0 auto", position: "relative" }}>
-          {/* Testimonial slider wrapper */}
-          <div className="glass-panel" style={{ padding: "40px", position: "relative", minHeight: "220px" }}>
-            <p
-              style={{
-                fontSize: "1.1rem",
-                lineHeight: "1.7",
-                fontStyle: "italic",
-                color: "var(--text-primary)",
-                marginBottom: "24px",
-              }}
-            >
-              "{testimonialsData[activeTestimonial].quote}"
-            </p>
-            <div>
-              <h4 style={{ fontWeight: 800, fontSize: "1.05rem", color: "var(--accent-primary)" }}>
-                {testimonialsData[activeTestimonial].author}
-              </h4>
-              <p style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
-                {testimonialsData[activeTestimonial].role} &bull; {testimonialsData[activeTestimonial].company}
-              </p>
-            </div>
-          </div>
-
-          {/* Testimonials controls */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              gap: "8px",
-              marginTop: "16px",
-            }}
-          >
-            <button
-              onClick={prevTestimonial}
-              style={{
-                background: "var(--bg-tertiary)",
-                border: "1px solid var(--border-glass)",
-                borderRadius: "8px",
-                width: "40px",
-                height: "40px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                color: "var(--text-primary)",
-                transition: "all var(--transition-fast)",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--accent-primary)")}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border-glass)")}
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <button
-              onClick={nextTestimonial}
-              style={{
-                background: "var(--bg-tertiary)",
-                border: "1px solid var(--border-glass)",
-                borderRadius: "8px",
-                width: "40px",
-                height: "40px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                color: "var(--text-primary)",
-                transition: "all var(--transition-fast)",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--accent-primary)")}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border-glass)")}
-            >
-              <ChevronRight size={18} />
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* 10. Blog Grid Section */}
       <section id="blog">
