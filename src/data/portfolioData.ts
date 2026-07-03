@@ -53,11 +53,13 @@ export const profileData = {
   name: "Uzair Anwar",
   title: "Enterprise Full Stack Software Engineer",
   tagline: "Building scalable enterprise applications, multi-tenant SaaS products, and custom CRM contact center integrations.",
-  location: "Islamabad, Pakistan (Open to Remote)",
-  email: "uzairanwar.dev@gmail.com", // Placeholder - user can change
-  linkedin: "https://linkedin.com/in/uzairanwar", // Placeholder
-  github: "https://github.com/uzairanwar", // Placeholder
-  whatsapp: "https://wa.me/923000000000", // Placeholder
+  location: "Lahore, Pakistan",
+  email: "uzairanwar2299@gmail.com",
+  linkedin: "https://linkedin.com/in/uzairanwar",
+  github: "https://github.com/uzair2299",
+  whatsapp: "https://wa.me/923366312299",
+  phone1: "+92 336 6312299",
+  phone2: "+92 320 5500003",
   cvLink: "#",
 };
 
