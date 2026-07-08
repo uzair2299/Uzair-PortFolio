@@ -26,6 +26,14 @@ export interface Experience {
   techStack: string[];
 }
 
+export interface Education {
+  id: string;
+  degree: string;
+  institution: string;
+  period: string;
+  result: string;
+}
+
 export interface SkillCategory {
   name: string;
   skills: string[];
@@ -50,9 +58,9 @@ export interface Testimonial {
 }
 
 export const profileData = {
-  name: "Uzair Anwar",
-  title: "Enterprise Full Stack Software Engineer",
-  tagline: "Building scalable enterprise applications, multi-tenant SaaS products, and custom CRM contact center integrations.",
+  name: "Uzair",
+  title: "Passionate Java Developer",
+  tagline: "Passionate Java Developer with experience in Spring Boot, Hibernate, and Java Core. Looking for a role to build efficient, secure, and scalable backend systems while growing my skills in a collaborative environment.",
   location: "Lahore, Pakistan",
   email: "uzairanwar2299@gmail.com",
   linkedin: "https://www.linkedin.com/in/uzairanwar2299/",
@@ -64,24 +72,28 @@ export const profileData = {
 
 export const skillsData: SkillCategory[] = [
   {
-    name: "Frontend",
-    skills: ["Angular", "React", "TypeScript", "JavaScript", "HTML5", "CSS3 / SCSS", "Angular Material", "RxJS", "State Management (NgRx/Redux)"]
+    name: "Languages",
+    skills: ["Java", "C#"]
   },
   {
-    name: "Backend",
-    skills: ["Java", "Spring Boot", "Spring Security", "Spring Data JPA", "Hibernate", "REST APIs", "Node.js", "Express", "OData APIs"]
+    name: "Frameworks",
+    skills: ["Spring Boot", "Asp.net Core", "Asp.net MVC", "WPF", "Angular"]
   },
   {
-    name: "Database",
-    skills: ["MySQL", "PostgreSQL", "SQL Server", "Redis (Caching)", "MongoDB"]
+    name: "Databases",
+    skills: ["SQL Server", "Redis"]
   },
   {
-    name: "Cloud & DevOps",
-    skills: ["Docker", "K3s / Kubernetes", "Vercel", "HostGator", "Git / GitHub Actions", "CI/CD Pipelines", "Nginx"]
+    name: "Messaging & Integration",
+    skills: ["ActiveMQ"]
   },
   {
-    name: "Enterprise Systems",
-    skills: ["SAP Cloud for Customer (C4C)", "Salesforce Service Cloud", "Cisco Webex Contact Center", "Multi-Tenant SaaS Architecture", "RBAC (Role-Based Access Control)"]
+    name: "Tools & IDEs",
+    skills: ["IntelliJ IDEA", "Visual Studio", "VS Code", "Postman", "MobaXterm"]
+  },
+  {
+    name: "Deployments & Cloud",
+    skills: ["Docker", "Kubernetes"]
   }
 ];
 
@@ -89,261 +101,161 @@ export const experienceData: Experience[] = [
   {
     id: "exp1",
     role: "Software Engineer",
-    company: "ExpertFlow",
-    location: "Islamabad, Pakistan",
-    period: "2024 - Present",
+    company: "ExpertFlow - Software for Customer Care",
+    location: "Lahore, Pakistan",
+    period: "11/2021 - Present",
     highlights: [
-      "Designed and developed CTI (Computer Telephony Integration) Connectors for SAP Cloud for Customer (C4C) and Salesforce Service Cloud using Angular and Spring Boot.",
-      "Built custom widgets for Cisco Webex Contact Center Agent Desktop, leveraging Webex Wrapper SDKs and HTML5 PostMessage API for secure cross-origin communication.",
-      "Optimized real-time agent event handling (ringing, answered, disconnected states) to reduce screen-pop latency by 45%.",
-      "Engineered secure, role-based REST APIs in Spring Boot integrated with enterprise identity providers via OAuth2 / SAML.",
-      "Successfully deployed containerized services on K3s lightweight Kubernetes clusters, reducing infrastructure footprint for enterprise on-prem clients."
+      "Design and develop scalable backend services using Java Spring Boot, ensuring seamless system integration and high-performance application behavior.",
+      "Utilize JavaScript technologies for backend development and integration tasks across various projects.",
+      "Contribute to projects involving Computer Telephony Integration (CTI), enabling real-time communication between telephony systems and customer-facing applications.",
+      "Enhance contact center capabilities such as screen pops, call routing, and agent desktop integration — improving customer service efficiency and operational workflows."
     ],
-    techStack: ["Angular", "Spring Boot", "SAP C4C", "Webex Contact Center SDK", "Docker", "K3s", "TypeScript", "RxJS", "PostgreSQL"]
+    techStack: ["Java", "Spring Boot", "JavaScript", "CTI", "APIs"]
   },
   {
     id: "exp2",
-    role: "Full Stack Software Engineer",
-    company: "Freelance / Software Solutions",
-    location: "Remote",
-    period: "2022 - 2024",
+    role: "Software Engineer",
+    company: "Xeven Solutions (Pvt) Ltd.",
+    location: "Lahore, Pakistan",
+    period: "04/2020 - 06/2021",
     highlights: [
-      "Architected and deployed a multi-tenant Smart School ERP system, supporting isolated student databases, dynamic fee scheduling, and automated grade management.",
-      "Developed a custom QR-code-based Asset Management System with strict permission layers and maintenance scheduling alerts.",
-      "Built and deployed high-performance marketing and service platform for a home maintenance company in UAE, achieving 98+ PageSpeed SEO score on Vercel.",
-      "Integrated third-party APIs including Stripe for billing, Twilio for SMS alerts, and SendGrid for automated student reports."
+      "Developed and maintained web applications using ASP.NET Core and C#.",
+      "Collaborated with cross-functional teams to deliver scalable solutions, implement RESTful APIs, and optimize system performance."
     ],
-    techStack: ["React", "Angular", "Spring Boot", "Hibernate", "PostgreSQL", "Vercel", "Stripe API", "Node.js", "Docker"]
+    techStack: ["ASP.NET Core", "C#", "REST APIs"]
+  },
+  {
+    id: "exp3",
+    role: "Junior Software Engineer",
+    company: "MDVision Pakistan",
+    location: "Lahore, Pakistan",
+    period: "08/2020 - 04/2021",
+    highlights: [
+      "Worked on MDVision EMR (Electronic Medical Records) system using ASP.NET Web Forms.",
+      "Contributed to patient data management, appointment scheduling, and system enhancements."
+    ],
+    techStack: ["ASP.NET Web Forms", "C#"]
+  },
+  {
+    id: "exp4",
+    role: "Internship",
+    company: "Dynovative Solution Pvt Ltd",
+    location: "Lahore, Pakistan",
+    period: "06/2020 - 08/2020",
+    highlights: [
+      "Gained hands-on experience in software development using C# and .NET technologies.",
+      "Worked on building and maintaining backend services, developing web applications, and performing debugging and code optimization tasks."
+    ],
+    techStack: ["C#", ".NET"]
   }
 ];
 
 export const projectsData: Project[] = [
   {
-    id: "sap-cti-connector",
-    title: "SAP C4C CTI Connector",
-    subtitle: "Enterprise CRM CTI Integration",
-    category: "enterprise",
-    summary: "Computer Telephony Integration (CTI) connector bridging Cisco Webex Contact Center and SAP Cloud for Customer (C4C).",
-    description: "This enterprise connector embeds inside the SAP Cloud for Customer CRM interface as a floating widget or integrated panel. When an incoming call triggers on the agent desktop, the connector listens to WebSockets/Webex events, queries customer profiles using OData APIs in the background, and triggers an instant 'Screen Pop' showing customer history, previous tickets, and details before the agent answers the call.",
-    architectureDetails: [
-      "CTI Bridge: Angular-based frontend embedded securely in SAP C4C via iframe container, communicating with the CRM framework.",
-      "OData Services: High-frequency queries to SAP C4C standard and custom OData endpoints to fetch customer objects dynamically.",
-      "Event Dispatcher: Spring Boot back-end caching session tokens and handling webhook payloads from telecom providers."
-    ],
-    techStack: ["Angular", "Spring Boot", "OData APIs", "SAP SDK", "RxJS", "Docker", "Sleek CSS"],
-    features: [
-      "Automatic Screen Pop on inbound call events",
-      "Click-to-Dial directly from SAP Contact cards",
-      "Bi-directional agent state synchronization (Ready, Not Ready, Break)",
-      "Automated call activity logging into SAP CRM timeline",
-      "Highly secure OAuth2 authentication flow"
-    ],
-    metrics: [
-      "Average Screen Pop latency: < 350ms",
-      "99.99% uptime in production deployment",
-      "Used by 200+ concurrent active enterprise call agents"
-    ],
-    codeSnippet: {
-      language: "typescript",
-      code: `// Communicating with SAP C4C hosting window via safe postMessage
-const sendCtiEventToCRM = (eventName: string, payload: any) => {
-  const crmTargetOrigin = "https://myxxxxxx.crm.ondemand.com";
-  const message = {
-    source: "EXPERTFLOW_CTI",
-    event: eventName,
-    data: payload
-  };
-  
-  window.parent.postMessage(JSON.stringify(message), crmTargetOrigin);
-};
-
-// Listen for incoming ringing events from telecom bridge
-telephonySocket.on("ringing", (callData) => {
-  sendCtiEventToCRM("CRM_SCREEN_POP", {
-    phoneNumber: callData.callerId,
-    direction: "Inbound",
-    callId: callData.connectionId
-  });
-});`,
-      description: "Secure cross-origin communication between the Angular CTI Widget and the host SAP Cloud for Customer CRM frame."
-    }
-  },
-  {
-    id: "webex-integration",
-    title: "Webex Desktop Custom Widget",
-    subtitle: "Cisco Webex Contact Center Add-on",
+    id: "webex-zoho-crm",
+    title: "Webex CC Integration with Zoho CRM",
+    subtitle: "API Integration",
     category: "cti",
-    summary: "A customized enterprise layout engine for Cisco Webex Contact Center Agent Desktop using wrappers and postMessage.",
-    description: "Designed a premium custom widget framework deployed within the Cisco Webex Agent Desktop environment. The widget listens to the active agent telephony events and handles contextual customer information synchronization. It connects agents to internal resources, automates post-call Wrap-Up codes, and handles screen synchronization for team supervisors.",
-    architectureDetails: [
-      "Cisco Webex Desktop SDK wrapper integration.",
-      "HTML5 postMessage secure channel to broadcast call state changes to parallel widgets.",
-      "Redux state store managing agent call status and customer history caches locally."
-    ],
-    techStack: ["React", "Redux", "Webex Wrapper SDK", "HTML5 postMessage", "SCSS", "Vercel"],
+    summary: "Integrated Webex Contact Center with Zoho CRM for real-time communication.",
+    description: "Successfully integrated Webex Contact Center with Zoho CRM, enabling real-time communication and seamless customer data synchronization between the platforms. Responsible for ensuring stability and performance through testing and troubleshooting.",
+    architectureDetails: [],
+    techStack: ["Webex CC", "Zoho CRM", "API Integration", "JavaScript"],
     features: [
-      "Custom UI panels for Customer Sentiment and Call History",
-      "Real-time Supervisor broadcast alerts",
-      "Supervisor silent monitoring notification badges",
-      "PostMessage listener translating desktop status variables",
-      "Dynamic theme integration matching Webex Dark/Light settings"
+      "Real-time communication and seamless customer data synchronization.",
+      "Troubleshooting and performance optimization for reliable integration."
     ],
-    metrics: [
-      "Zero page freezes reported over 12 months",
-      "Reduced call wrap-up time (ACW) by 22 seconds per interaction",
-      "Deployed to 1,000+ contact center agents globally"
-    ],
-    codeSnippet: {
-      language: "javascript",
-      code: `// Listen to Webex Desktop Framework Event broadcast
-window.addEventListener("message", (event) => {
-  if (event.origin !== EXPECTED_WEBEX_DESKTOP_ORIGIN) return;
-  
-  try {
-    const data = typeof event.data === "string" ? JSON.parse(event.data) : event.data;
-    if (data.type === "WIDGET_OUTCOMING_TELEPHONY_EVENT") {
-      const { state, interaction } = data.payload;
-      updateAgentUIState(state); // Ringing, Connected, WrapUp
-      loadCustomerContext(interaction.mediaProperties.ani);
-    }
-  } catch (err) {
-    console.error("Failed to parse Webex desktop event", err);
-  }
-}, false);`,
-      description: "Event handling script inside the Webex custom widget receiving caller identification from the main desktop frame."
-    }
+    metrics: []
   },
   {
-    id: "smart-school-erp",
-    title: "Smart School ERP",
-    subtitle: "Multi-tenant Academic SaaS",
-    category: "saas",
-    summary: "A cloud-hosted multi-tenant ERP platform managing student lifecycle, online fees, automated attendance, and grades.",
-    description: "Built to serve multiple schools as tenants on a single database deployment. Uses Spring Boot dynamic multi-tenancy configurations, mapping separate database schemas dynamically based on the incoming tenant identifier header. Frontend developed in Angular with custom role-based routing guards, keeping student, teacher, and administrator experiences secure and personalized.",
-    architectureDetails: [
-      "Schema-based multi-tenancy: Dynamic datasource router switching database contexts on each request thread based on standard tenant headers.",
-      "Spring Security JWT: Stateful tokens holding tenant metadata and User roles (RBAC).",
-      "Angular Dynamic Forms: Customizable dashboards and grade cards tailored per school brand settings."
-    ],
-    techStack: ["Spring Boot", "Angular", "Spring Security", "Hibernate", "PostgreSQL", "Docker", "TailwindCSS"],
-    features: [
-      "Schema-isolated tenant data stores",
-      "Fee payment scheduling and integration with Stripe/EasyPaisa",
-      "Real-time student attendance tracking with SMS triggers",
-      "Role-Based Access Control (SuperAdmin, Principal, Teacher, Student)",
-      "Comprehensive analytics dashboard for school performance metrics"
-    ],
-    metrics: [
-      "Supporting 15+ tenant schools",
-      "Over 10,000+ active student records managed",
-      "Processed over $150k in online fee payments"
-    ],
-    codeSnippet: {
-      language: "java",
-      code: `// Spring Boot Dynamic Tenant Schema Resolver
-public class TenantSchemaResolver implements CurrentTenantIdentifierResolver {
-    @Override
-    public String resolveCurrentTenantIdentifier() {
-        String tenantId = TenantContext.getCurrentTenant();
-        return tenantId != null ? tenantId : "public";
-    }
-
-    @Override
-    public boolean validateExistingCurrentSessions() {
-        return true;
-    }
-}
-
-// Aspect intercepting incoming API calls to extract X-Tenant-ID
-@Component
-public class TenantInterceptor implements HandlerInterceptor {
-    @Override
-    public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object h) {
-        String tenantId = req.getHeader("X-Tenant-ID");
-        TenantContext.setCurrentTenant(tenantId);
-        return true;
-    }
-}`,
-      description: "Dynamic tenant schema switching pattern mapping Hibernate database connections per API request."
-    }
-  },
-  {
-    id: "asset-management-system",
-    title: "Enterprise Asset Tracker",
-    subtitle: "Asset Tracking & Preventive Maintenance",
+    id: "expertflow-fnb-ocep",
+    title: "Expertflow CC Integration with FNB Framework",
+    subtitle: "Banking Sector Integration",
     category: "enterprise",
-    summary: "Internal tracking application organizing enterprise hardware, QR code generation, check-in flows, and maintenance alerts.",
-    description: "Helps enterprises manage physical capital and IT hardware inventory. Features dynamic QR code generation for tags, a native mobile-friendly scanner interface, check-in/check-out tracking, vendor contracts indexing, and recurring maintenance email reminders driven by Quartz scheduler.",
-    architectureDetails: [
-      "Spring Boot back-end managing DB transactions and image uploads.",
-      "Angular Material frontend with searchable paginated tables and dynamic filters.",
-      "Quartz Job Scheduler for automation of preventive maintenance checklists."
-    ],
-    techStack: ["Angular", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Quartz Scheduler", "Angular Material"],
+    summary: "Integrated Expertflow Contact Centre solution with the FNB framework (OCEP).",
+    description: "Worked for 2 years on integrating Expertflow’s Contact Centre solution with the FNB framework OCEP, handling end-to-end development, customer coordination, and integration testing. Delivered seamless communication and data exchange by building scalable backend services with Spring Boot.",
+    architectureDetails: [],
+    techStack: ["Spring Boot", "Java", "Expertflow Chat", "FNB Framework (OCEP)"],
     features: [
-      "Automated PDF and SVG QR Code sheet generation",
-      "Quick Scan Check-in and Check-out scanner",
-      "Automated emails to technicians for upcoming maintenance",
-      "Fine-grained asset category hierarchies",
-      "Asset history timeline tracing every transfer and repair event"
+      "End-to-end development and integration testing.",
+      "Scalable backend services for seamless communication and data exchange."
     ],
-    metrics: [
-      "5,000+ assets indexed and tracked",
-      "Reduced IT audit mismatch by 95%",
-      "Maintenance checklist compliance increased from 60% to 98%"
-    ]
+    metrics: []
   },
   {
-    id: "practice-management-saas",
-    title: "Clinic Practice Management",
-    subtitle: "Healthcare SaaS Platform",
-    category: "saas",
-    summary: "Appointment scheduling, interactive patient charts, billing, and prescription builder for private clinics.",
-    description: "Designed for small-to-midsize medical clinics. Features a real-time calendar grid with drag-and-drop appointments, integrated billing with receipt generation, role-based controls for receptionists and doctors, and a prescription editor with searchable drug catalogs.",
-    architectureDetails: [
-      "Spring Boot APIs with Spring Security JWT and Method-Level Authorization (@PreAuthorize).",
-      "React Frontend utilizing full calendar grids and clean context-driven states.",
-      "PostgreSQL with optimized indexes supporting rapid calendar queries."
-    ],
-    techStack: ["React", "Spring Boot", "Spring Security", "PostgreSQL", "Docker", "Nginx"],
-    features: [
-      "Interactive drag-and-drop Appointment Calendar",
-      "Doctor and receptionist split dashboards",
-      "Prescription builder with templates",
-      "Auto-billing and printable invoice generator",
-      "HIPAA-compliant audit logs for medical records changes"
-    ],
-    metrics: [
-      "Active in 4 specialized clinics",
-      "Successfully scheduled 20,000+ medical visits",
-      "99% positive doctor workflow feedback score"
-    ]
-  },
-  {
-    id: "home-maintenance-web",
-    title: "UAE Home Maintenance Hub",
-    subtitle: "High-Performance Corporate Website",
+    id: "ufone-ticketing-system",
+    title: "Ufone Customer Ticketing System",
+    subtitle: "Frontend Development",
     category: "fullstack",
-    summary: "Fully responsive, SEO-optimized business platform for a maintenance enterprise operating in the UAE.",
-    description: "Developed and optimized a lightning-fast service booking and informational platform. Focus was placed on animations, layout responsiveness, and maximum search engine discoverability. Implemented custom static rendering, structured metadata JSON-LD schemas, and a serverless contact dispatch service.",
-    architectureDetails: [
-      "React client-side application statically optimized and hosted on Vercel.",
-      "CSS Grid responsive structures with customized fluid typography rules.",
-      "Integrates Serverless Functions handling lead forwards directly to corporate WhatsApp/Email API."
-    ],
-    techStack: ["React", "Vercel Serverless", "Vanilla CSS", "SEO Schema JSON-LD", "Vercel"],
+    summary: "Frontend Developer on Ufone’s customer ticketing system using Angular.",
+    description: "Built responsive UI components, integrated RESTful APIs for real-time customer data, and implemented features to log interactions and assist agents with query handling. Focused on performance and cross-browser compatibility.",
+    architectureDetails: [],
+    techStack: ["Angular", "REST APIs"],
     features: [
-      "Under 1.2s Page Load Time (LCP)",
-      "Interactive dynamic booking forms with WhatsApp dispatching",
-      "Localized rich snippet metadata structure",
-      "Sleek modern layouts using CSS variables and smooth transitions",
-      "Complete mobile-first responsiveness targeting UAE customers"
+      "Responsive UI components and real-time data integration.",
+      "Interaction logging and query handling for agents."
     ],
-    metrics: [
-      "99/100 Mobile performance score on Google Lighthouse",
-      "300%+ increase in online inbound inquiries in first 60 days",
-      "SEO ranking on page 1 for target localized service terms"
-    ]
+    metrics: []
+  },
+  {
+    id: "expertflow-usd-cti",
+    title: "Expertflow USD CTI Connector",
+    subtitle: "Middleware Solution",
+    category: "enterprise",
+    summary: "Enterprise-grade middleware integrating Cisco Contact Center platforms with Microsoft Dynamics USD.",
+    description: "Developed and supported an enterprise-grade middleware solution integrating Cisco Contact Center platforms (UCCX, UCCE) with Microsoft Dynamics Unified Service Desk (USD). Enabled seamless telephony operations within the Dynamics CRM interface.",
+    architectureDetails: [],
+    techStack: [".NET/WPF", "CIF", "ActiveMQ", "Cisco Finesse", "Microsoft Unified Service Desk"],
+    features: [
+      "Seamless telephony operations within Dynamics CRM.",
+      "Improved agent workflows and customer service efficiency."
+    ],
+    metrics: []
+  },
+  {
+    id: "dynamics-genesys-integration",
+    title: "Dynamics 365 & Genesys PureCloud Integration",
+    subtitle: "R&D Project",
+    category: "enterprise",
+    summary: "R&D to develop seamless integration between Genesys PureCloud and Microsoft Dynamics 365.",
+    description: "Conducted R&D to develop a seamless integration solution between Genesys PureCloud and Microsoft Dynamics 365 using the Genesys embeddable framework, enabling unified communication and improved workflow efficiency for agents.",
+    architectureDetails: [],
+    techStack: ["Dynamics 365", "Genesys PureCloud", "Embeddable Framework"],
+    features: [
+      "Unified communication and workflow efficiency.",
+      "Seamless integration using the embeddable framework."
+    ],
+    metrics: []
+  },
+  {
+    id: "mdvision-emr",
+    title: "MDVision All-in-One PM EMR",
+    subtitle: "Healthcare Solution",
+    category: "saas",
+    summary: "Healthcare solution integrating Electronic Medical Records (EMR) and Practice Management (PM).",
+    description: "Team member responsible for maintenance and new feature development on the MDVision All-in-One PM EMR — a healthcare solution integrating Electronic Medical Records (EMR) and Practice Management (PM).",
+    architectureDetails: [],
+    techStack: ["ASP.NET WebForms", "C#", "SQL Server"],
+    features: [
+      "Maintenance and new feature development.",
+      "Integrating EMR and PM solutions."
+    ],
+    metrics: []
+  },
+  {
+    id: "auto-solution",
+    title: "Auto Solution",
+    subtitle: "FYP",
+    category: "fullstack",
+    summary: "Full-stack web application for buying, selling, and searching vehicles and auto parts.",
+    description: "Developed a full-stack web application inspired by PakWheels for buying, selling, and searching vehicles and auto parts. Implemented key features including vehicle and parts listings, advanced filtering, user dashboards, image uploads, and role-based authentication.",
+    architectureDetails: [],
+    techStack: ["ASP.NET Core", "SQL Server", "HTML/CSS", "JavaScript", "Bootstrap"],
+    features: [
+      "Vehicle and parts listings with advanced filtering.",
+      "User dashboards and image uploads.",
+      "Role-based authentication with admin and user access controls."
+    ],
+    metrics: []
   }
 ];
 
@@ -669,23 +581,31 @@ export const achievementsData = [
   "Delivered complex Practice Management SaaS featuring calendar engines and advanced audit logging."
 ];
 
-export const certificationsData = [
+export const educationData: Education[] = [
   {
-    name: "SAP Cloud for Customer Integration",
-    issuer: "SAP",
-    date: "2025"
+    id: "edu1",
+    degree: "Bachelor of Science (Hons), Computer Science",
+    institution: "NCBA&E, Lahore",
+    period: "2016 - 2020",
+    result: "CGPA: 3.7/4.0"
   },
   {
-    name: "Cisco Webex Contact Center SDK Certification",
-    issuer: "Cisco Partner Network",
-    date: "2024"
+    id: "edu2",
+    degree: "F.Sc Pre-Engineering",
+    institution: "BISE, Bahawalpur",
+    period: "2012 - 2014",
+    result: "Result: 67%"
   },
   {
-    name: "Oracle Certified Associate, Java SE Programmer",
-    issuer: "Oracle",
-    date: "2023"
+    id: "edu3",
+    degree: "SSC in Science",
+    institution: "BISE, Bahawalpur",
+    period: "2012",
+    result: "Result: 83%"
   }
 ];
+
+export const certificationsData = [];
 
 export const learningData = [
   "Advanced System Design (Microservices & Event-Driven Patterns)",

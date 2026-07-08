@@ -11,8 +11,7 @@ import {
   projectsData,
   blogData,
   achievementsData,
-  certificationsData,
-  learningData,
+  educationData,
   Project,
   BlogPost
 } from "../data/portfolioData";
@@ -615,64 +614,23 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 8. Certifications & Split Learning Deck */}
-      <section style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "32px" }} className="cert-grid">
-        {/* Certifications Card */}
-        <div className="glass-panel" style={{ padding: "32px" }}>
-          <h3 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "20px" }}>Certifications</h3>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            {certificationsData.map((cert, index) => (
-              <div
-                key={index}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  background: "var(--bg-secondary)",
-                  border: "1px solid var(--border-glass)",
-                  borderRadius: "8px",
-                  padding: "16px",
-                }}
-              >
-                <div>
-                  <h4 style={{ fontSize: "0.98rem", fontWeight: 700 }}>{cert.name}</h4>
-                  <p style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>{cert.issuer}</p>
-                </div>
-                <span className="badge" style={{ fontSize: "0.75rem" }}>
-                  {cert.date}
-                </span>
+      {/* 8. Education Section */}
+      <section id="education">
+        <h2 className="section-title">Education</h2>
+        <p className="section-subtitle">My academic background and qualifications.</p>
+        <div className="grid-3" style={{ gap: "24px" }}>
+          {educationData.map((edu) => (
+            <div key={edu.id} className="glass-card" style={{ padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+              <div>
+                <h3 style={{ fontSize: "1.25rem", fontWeight: 800, marginBottom: "8px" }}>{edu.degree}</h3>
+                <p style={{ color: "var(--accent-primary)", fontSize: "0.95rem", fontWeight: 600, marginBottom: "16px" }}>{edu.institution}</p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Currently Learning Card */}
-        <div className="glass-panel" style={{ padding: "32px" }}>
-          <h3 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "20px" }}>Currently Leveling Up</h3>
-          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
-            {learningData.map((item, index) => (
-              <li
-                key={index}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  fontSize: "0.95rem",
-                  color: "var(--text-secondary)",
-                }}
-              >
-                <span
-                  style={{
-                    width: "8px",
-                    height: "8px",
-                    borderRadius: "50%",
-                    background: "var(--accent-secondary)",
-                  }}
-                />
-                {item}
-              </li>
-            ))}
-          </ul>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid var(--border-glass)", paddingTop: "16px" }}>
+                <span className="badge" style={{ fontSize: "0.8rem", background: "var(--bg-tertiary)" }}>{edu.period}</span>
+                <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)", fontWeight: 500 }}>{edu.result}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
