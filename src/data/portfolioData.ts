@@ -34,9 +34,14 @@ export interface Education {
   result: string;
 }
 
+export interface SkillItem {
+  name: string;
+  icon?: string;
+}
+
 export interface SkillCategory {
   name: string;
-  skills: string[];
+  skills: (string | SkillItem)[];
 }
 
 export interface BlogPost {
@@ -73,11 +78,25 @@ export const profileData = {
 export const skillsData: SkillCategory[] = [
   {
     name: "Languages",
-    skills: ["Java", "C#"]
+    skills: [
+      { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
+      { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
+      { name: "JavaScript (ES6+)", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+      { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" },
+      { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" },
+      { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
+      { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" }
+    ]
   },
   {
     name: "Frameworks",
-    skills: ["Spring Boot", "Asp.net Core", "Asp.net MVC", "WPF", "Angular"]
+    skills: [
+      { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" },
+      "Asp.net Core",
+      "Asp.net MVC",
+      "WPF",
+      { name: "Angular", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" }
+    ]
   },
   {
     name: "Databases",

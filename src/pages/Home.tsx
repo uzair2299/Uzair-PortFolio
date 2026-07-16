@@ -317,31 +317,41 @@ export const Home: React.FC = () => {
                 <h3 style={{ fontSize: "1.15rem", fontWeight: 700 }}>{category.name}</h3>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "4px" }}>
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    style={{
-                      background: "var(--bg-tertiary)",
-                      border: "1px solid var(--border-glass)",
-                      borderRadius: "6px",
-                      padding: "6px 12px",
-                      fontSize: "0.85rem",
-                      fontWeight: 500,
-                      color: "var(--text-primary)",
-                      transition: "all var(--transition-fast)",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "var(--accent-primary)";
-                      e.currentTarget.style.transform = "translateY(-1px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "var(--border-glass)";
-                      e.currentTarget.style.transform = "none";
-                    }}
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {category.skills.map((skill) => {
+                  const isObj = typeof skill === "object";
+                  const skillName = isObj ? skill.name : skill;
+                  const skillIcon = isObj ? skill.icon : null;
+
+                  return (
+                    <span
+                      key={skillName}
+                      style={{
+                        background: "var(--bg-tertiary)",
+                        border: "1px solid var(--border-glass)",
+                        borderRadius: "6px",
+                        padding: "6px 12px",
+                        fontSize: "0.85rem",
+                        fontWeight: 500,
+                        color: "var(--text-primary)",
+                        transition: "all var(--transition-fast)",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "6px"
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = "var(--accent-primary)";
+                        e.currentTarget.style.transform = "translateY(-1px)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = "var(--border-glass)";
+                        e.currentTarget.style.transform = "none";
+                      }}
+                    >
+                      {skillIcon && <img src={skillIcon} alt={skillName} style={{ width: 16, height: 16 }} />}
+                      <span>{skillName}</span>
+                    </span>
+                  );
+                })}
               </div>
             </div>
           ))}
