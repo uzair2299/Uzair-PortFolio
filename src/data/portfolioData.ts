@@ -69,8 +69,6 @@ export const profileData = {
   location: "Lahore, Pakistan",
   email: "uzairanwar2299@gmail.com",
   linkedin: "https://www.linkedin.com/in/uzairanwar2299/",
-  whatsapp: "https://wa.me/923366312299",
-  phone1: "+92 336 6312299",
   phone2: "+92 320 5500003",
   cvLink: "#",
 };

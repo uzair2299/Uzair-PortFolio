@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
       }
 
       // Identify active section
-      const sections = ["hero", "about", "skills", "experience", "projects", "blog", "contact"];
+      const sections = ["hero", "about", "skills", "experience", "projects", "contact"];
       const scrollPos = window.scrollY + 200; // offset for nav height
 
       for (const section of sections) {
@@ -77,7 +77,6 @@ export const Navbar: React.FC = () => {
     { label: "Skills", id: "skills" },
     { label: "Experience", id: "experience" },
     { label: "Projects", id: "projects" },
-    { label: "Blog", id: "blog" },
     { label: "Contact", id: "contact" }
   ];
 

@@ -4,7 +4,7 @@ import { profileData } from "../data/portfolioData";
 
 export const ContactForm: React.FC = () => {
   return (
-    <div style={{ maxWidth: "650px", margin: "0 auto" }}>
+    <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
       <div
         className="glass-panel"
         style={{
@@ -29,11 +29,10 @@ export const ContactForm: React.FC = () => {
         {/* Channels List */}
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "24px",
             width: "100%",
-            maxWidth: "450px",
           }}
         >
           {/* Email */}
@@ -103,12 +102,8 @@ export const ContactForm: React.FC = () => {
               <Phone size={20} />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-              <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", textTransform: "uppercase", fontWeight: 600 }}>WhatsApp / Mobile</div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center" }}>
-                <a href={profileData.whatsapp} target="_blank" rel="noreferrer" style={{ fontSize: "0.98rem", fontWeight: 600 }} className="contact-link">
-                  {profileData.phone1} (WhatsApp)
-                </a>
-                <span style={{ color: "var(--border-glass)" }}>|</span>
+              <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", textTransform: "uppercase", fontWeight: 600 }}>Mobile</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px", marginTop: "4px" }}>
                 <a href={`tel:${profileData.phone2.replace(/\s+/g, "")}`} style={{ fontSize: "0.95rem", fontWeight: 600 }} className="contact-link">
                   {profileData.phone2} (Mobile)
                 </a>
@@ -152,40 +147,50 @@ export const ContactForm: React.FC = () => {
               </span>
             </div>
           </div>
-        </div>
 
-        {/* Social Accounts */}
-        <div style={{ width: "100%", borderTop: "1px solid var(--border-glass)", paddingTop: "28px" }}>
-          <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", textTransform: "uppercase", fontWeight: 600, marginBottom: "16px" }}>
-            Professional Network
-          </div>
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-            <a
-              href={profileData.linkedin}
-              target="_blank"
-              rel="noreferrer"
+          {/* LinkedIn */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "16px",
+              background: "var(--bg-secondary)",
+              border: "1px solid var(--border-glass)",
+              borderRadius: "12px",
+              padding: "16px 20px",
+              textAlign: "left",
+            }}
+          >
+            <div
               style={{
                 width: "44px",
                 height: "44px",
                 borderRadius: "10px",
-                background: "var(--bg-secondary)",
+                background: "rgba(255, 255, 255, 0.05)",
                 border: "1px solid var(--border-glass)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                transition: "all var(--transition-fast)",
+                color: "var(--text-primary)",
+                flexShrink: 0,
               }}
-              className="social-icon"
-              aria-label="LinkedIn Profile"
             >
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                 <rect x="2" y="9" width="4" height="12" />
                 <circle cx="4" cy="4" r="2" />
               </svg>
-            </a>
+            </div>
+            <div>
+              <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", textTransform: "uppercase", fontWeight: 600 }}>Professional Network</div>
+              <a href={profileData.linkedin} target="_blank" rel="noreferrer" style={{ fontSize: "0.98rem", fontWeight: 600 }} className="contact-link">
+                LinkedIn Profile
+              </a>
+            </div>
           </div>
         </div>
+
+
       </div>
 
       <style>{`

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Background } from "../components/Background";
 import { ProjectModal } from "../components/ProjectModal";
-import { BlogModal } from "../components/BlogModal";
 import { ContactForm } from "../components/ContactForm";
 import { motion } from "framer-motion";
 import {
@@ -9,31 +7,20 @@ import {
   skillsData,
   experienceData,
   projectsData,
-  blogData,
   achievementsData,
   educationData,
-  Project,
-  BlogPost
+  Project
 } from "../data/portfolioData";
 import {
   ArrowRight,
-  Code,
-  Layers,
-  Database,
-  Cloud,
-  Settings,
-  Sparkles,
-  Download,
-  PhoneCall,
-  Calendar,
   CheckCircle,
-  Cpu
+  Cpu,
+  GraduationCap
 } from "lucide-react";
 
 export const Home: React.FC = () => {
   // Modals state
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [selectedBlog, setSelectedBlog] = useState<BlogPost | null>(null);
 
   // Projects filter state
   const [projectFilter, setProjectFilter] = useState<string>("all");
@@ -87,24 +74,6 @@ export const Home: React.FC = () => {
       setFilteredProjects(projectsData.filter((p) => p.category === projectFilter));
     }
   }, [projectFilter]);
-
-
-
-  // Skill category icons resolver
-  const getSkillCategoryIcon = (categoryName: string) => {
-    switch (categoryName) {
-      case "Frontend":
-        return <Code size={20} className="skill-cat-icon" style={{ color: "var(--accent-primary)" }} />;
-      case "Backend":
-        return <Layers size={20} className="skill-cat-icon" style={{ color: "var(--accent-secondary)" }} />;
-      case "Database":
-        return <Database size={20} className="skill-cat-icon" style={{ color: "var(--accent-tertiary)" }} />;
-      case "Cloud & DevOps":
-        return <Cloud size={20} className="skill-cat-icon" style={{ color: "var(--accent-success)" }} />;
-      default:
-        return <Settings size={20} className="skill-cat-icon" style={{ color: "var(--accent-primary)" }} />;
-    }
-  };
 
   return (
     <>
@@ -554,87 +523,29 @@ export const Home: React.FC = () => {
       <section id="education">
         <h2 className="section-title">Education</h2>
         <p className="section-subtitle">My academic background and qualifications.</p>
-        <div className="grid-3" style={{ gap: "24px" }}>
+        <div className="timeline">
           {educationData.map((edu) => (
-            <div key={edu.id} className="glass-card" style={{ padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <div>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 800, marginBottom: "8px" }}>{edu.degree}</h3>
-                <p style={{ color: "var(--accent-primary)", fontSize: "0.95rem", fontWeight: 600, marginBottom: "16px" }}>{edu.institution}</p>
+            <div key={edu.id} className="timeline-item">
+              <div className="timeline-dot">
+                <GraduationCap size={14} />
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid var(--border-glass)", paddingTop: "16px" }}>
-                <span className="badge" style={{ fontSize: "0.8rem", background: "var(--bg-tertiary)" }}>{edu.period}</span>
-                <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)", fontWeight: 500 }}>{edu.result}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-
-
-      {/* 10. Blog Grid Section */}
-      <section id="blog">
-        <h2 className="section-title">Technical Blog</h2>
-        <p className="section-subtitle">Articles on system design patterns, performance strategies, and API security guidelines.</p>
-
-        <div className="grid-3" style={{ gap: "24px" }}>
-          {blogData.map((post) => (
-            <div
-              key={post.id}
-              className="glass-card"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                height: "100%",
-                padding: "24px",
-              }}
-            >
-              <div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    fontSize: "0.8rem",
-                    color: "var(--text-muted)",
-                    marginBottom: "12px",
-                  }}
-                >
-                  <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                    <Calendar size={12} /> {post.date}
-                  </span>
-                  <span>&bull;</span>
-                  <span>{post.readTime}</span>
+              <div className="timeline-content">
+                <div className="timeline-header">
+                  <h3 className="timeline-title">{edu.degree}</h3>
+                  <span className="timeline-date">{edu.period}</span>
                 </div>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 800, marginBottom: "12px", lineHeight: "1.3" }}>
-                  {post.title}
-                </h3>
-                <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "20px" }}>
-                  {post.summary}
-                </p>
-              </div>
-
-              <div>
-                <button
-                  onClick={() => setSelectedBlog(post)}
-                  className="btn btn-secondary"
-                  style={{
-                    width: "100%",
-                    fontSize: "0.85rem",
-                    padding: "8px 12px",
-                    borderRadius: "6px",
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  Read Article <ArrowRight size={14} />
-                </button>
+                <p className="timeline-subtitle">{edu.institution}</p>
+                <div className="timeline-result">
+                  <CheckCircle size={14} />
+                  <span>{edu.result}</span>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
+
+
 
       {/* 11. Contact Form Section */}
       <section id="contact" style={{ paddingBottom: "120px" }}>
@@ -643,9 +554,8 @@ export const Home: React.FC = () => {
         <ContactForm />
       </section>
 
-      {/* Project details and Blog popups overlays */}
+      {/* Project details overlays */}
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-      <BlogModal blog={selectedBlog} onClose={() => setSelectedBlog(null)} />
 
       {/* Extra Responsive Styling for Home Sections */}
       <style>{`
