@@ -109,139 +109,62 @@ export const Home: React.FC = () => {
   return (
     <>
       {/* 1. Hero Section */}
-      <section
-        id="hero"
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          paddingTop: "140px",
-          position: "relative",
-        }}
-      >
-        <Background />
+      {/* 1. Hero Section (Editorial Redesign) */}
+      <section id="hero" style={{ position: "relative", backgroundColor: "var(--bg-editorial)", overflow: "hidden", maxWidth: "100%", padding: 0 }}>
+        <div className="editorial-number">01</div>
+        <div className="editorial-vertical-nav">UZAIR ANWAR — PORTFOLIO</div>
+        
+        <div className="editorial-grid">
+          <div className="editorial-left">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <h4 className="editorial-greeting">Hello.</h4>
+              <h1 className="editorial-headline">
+                UZAIR<br />ANWAR
+              </h1>
+              <div className="editorial-title">
+                Senior Software Engineer
+              </div>
+              <p className="editorial-body">
+                I build scalable backend systems, REST APIs, microservices, and enterprise applications using Java, Spring Boot, and modern cloud technologies. Passionate about clean architecture, performance, and creating reliable software solutions.
+              </p>
+              <div className="editorial-actions">
+                <button 
+                  onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })} 
+                  className="btn-editorial-primary"
+                >
+                  View Projects
+                </button>
+                <a 
+                  href={profileData.cvLink} 
+                  className="btn-editorial-secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download Resume
+                </a>
+              </div>
+            </motion.div>
+          </div>
 
-        {/* Floating Code Mockup Background (Abstract Art) */}
-        <div className="hero-code-decoration animate-float" style={{ display: "none" }}>
-          <code>class SoftwareEngineer &#123; const skills = ["Angular", "Spring Boot"]; &#125;</code>
+          <div className="editorial-right">
+            <motion.div
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              style={{ width: "100%", height: "100%" }}
+            >
+              <img
+                src="/profile.png"
+                alt="Uzair Anwar Portrait"
+                className="editorial-portrait"
+              />
+            </motion.div>
+          </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          style={{ position: "relative", zIndex: 10, maxWidth: "800px" }}
-        >
-          {/* Profile Photo Container */}
-          <div
-            style={{
-              position: "relative",
-              width: "150px",
-              height: "150px",
-              margin: "0 auto 24px",
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                inset: "-4px",
-                borderRadius: "50%",
-                background: "var(--gradient-accent)",
-                zIndex: 1,
-                opacity: 0.8,
-                filter: "blur(2px)",
-              }}
-              className="animate-pulse-slow"
-            />
-            <img
-              src="/profile.png"
-              alt="Uzair Anwar"
-              style={{
-                position: "relative",
-                width: "100%",
-                height: "100%",
-                borderRadius: "50%",
-                objectFit: "cover",
-                border: "4px solid var(--bg-primary)",
-                zIndex: 2,
-                boxShadow: "var(--shadow-lg)",
-              }}
-            />
-          </div>
-
-          <span
-            className="badge badge-accent"
-            style={{
-              padding: "6px 16px",
-              fontSize: "0.85rem",
-              marginBottom: "24px",
-              borderRadius: "50px",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <Sparkles size={14} /> Open to Global Roles & Remote
-          </span>
-
-          <h1
-            style={{
-              fontSize: "4.5rem",
-              fontWeight: 900,
-              lineHeight: "1.05",
-              letterSpacing: "-2px",
-              marginBottom: "16px",
-            }}
-          >
-            Hi, I'm <span className="gradient-text">{profileData.name}</span>
-          </h1>
-
-          <div
-            style={{
-              fontSize: "1.8rem",
-              fontWeight: 700,
-              minHeight: "44px",
-              marginBottom: "24px",
-              color: "var(--text-primary)",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <span>I'm a </span>
-            <span style={{ borderRight: "3px solid var(--accent-primary)", paddingRight: "4px" }} className="typewriter">
-              {typewriterText}
-            </span>
-          </div>
-
-          <p
-            style={{
-              color: "var(--text-secondary)",
-              fontSize: "1.2rem",
-              maxWidth: "600px",
-              margin: "0 auto 36px",
-              lineHeight: "1.6",
-            }}
-          >
-            {profileData.tagline}
-          </p>
-
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <button onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })} className="btn btn-primary">
-              View Work <ArrowRight size={16} />
-            </button>
-            <button onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} className="btn btn-secondary">
-              Contact Me <PhoneCall size={16} />
-            </button>
-            <a href={profileData.cvLink} className="btn btn-secondary" style={{ borderStyle: "dashed" }}>
-              Download CV <Download size={16} />
-            </a>
-          </div>
-        </motion.div>
       </section>
 
       {/* 2. About Me Section */}
@@ -296,65 +219,68 @@ export const Home: React.FC = () => {
         <h2 className="section-title">My Skills</h2>
         <p className="section-subtitle">Organized stacks representing technologies I work with in production daily.</p>
 
-        <div className="grid-3" style={{ gap: "20px" }}>
-          {skillsData.map((category) => (
-            <div key={category.name} className="glass-card" style={{ display: "flex", flexDirection: "column", gap: "16px", background: "var(--bg-primary)" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <span
-                  style={{
-                    background: "rgba(255, 255, 255, 0.03)",
-                    border: "1px solid var(--border-glass)",
-                    borderRadius: "8px",
-                    width: "36px",
-                    height: "36px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  {getSkillCategoryIcon(category.name)}
-                </span>
-                <h3 style={{ fontSize: "1.15rem", fontWeight: 700 }}>{category.name}</h3>
-              </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "4px" }}>
-                {category.skills.map((skill) => {
-                  const isObj = typeof skill === "object";
-                  const skillName = isObj ? skill.name : skill;
-                  const skillIcon = isObj ? skill.icon : null;
+        <div className="bento-grid">
+          {skillsData.map((category) => {
+            let bentoClass = "bento-small";
+            let displayTitle = category.name.toUpperCase();
+            let subtitle = "";
 
-                  return (
-                    <span
-                      key={skillName}
-                      style={{
-                        background: "var(--bg-tertiary)",
-                        border: "1px solid var(--border-glass)",
-                        borderRadius: "6px",
-                        padding: "6px 12px",
-                        fontSize: "0.85rem",
-                        fontWeight: 500,
-                        color: "var(--text-primary)",
-                        transition: "all var(--transition-fast)",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "6px"
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = "var(--accent-primary)";
-                        e.currentTarget.style.transform = "translateY(-1px)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = "var(--border-glass)";
-                        e.currentTarget.style.transform = "none";
-                      }}
-                    >
-                      {skillIcon && <img src={skillIcon} alt={skillName} style={{ width: 16, height: 16 }} />}
-                      <span>{skillName}</span>
-                    </span>
-                  );
-                })}
+            switch(category.name) {
+              case "Languages":
+                bentoClass = "bento-large";
+                displayTitle = "CORE LANGUAGES.";
+                subtitle = "Building the foundation with type-safe precision and structured codebases.";
+                break;
+              case "Frameworks":
+                bentoClass = "bento-wide";
+                displayTitle = "ENTERPRISE STACK.";
+                subtitle = "Robust backend & reactive frontend environments.";
+                break;
+              case "Databases":
+                bentoClass = "bento-small";
+                displayTitle = "DATA SYSTEMS.";
+                subtitle = "Persistence at scale.";
+                break;
+              case "Messaging & Integration":
+                bentoClass = "bento-small";
+                displayTitle = "EVENT DRIVEN.";
+                subtitle = "Decoupled async processing.";
+                break;
+              case "Tools & IDEs":
+                bentoClass = "bento-wide";
+                displayTitle = "DEV TOOLS.";
+                subtitle = "Optimizing the daily development workflow.";
+                break;
+              case "Deployments & Cloud":
+                bentoClass = "bento-wide";
+                displayTitle = "CLOUD OPS.";
+                subtitle = "Shipping software reliably.";
+                break;
+            }
+
+            return (
+              <div key={category.name} className={`bento-card ${bentoClass}`}>
+                <div className="bento-content">
+                  <h3 className="bento-title">{displayTitle}</h3>
+                  <p className="bento-subtitle">{subtitle}</p>
+                </div>
+                
+                <div className="bento-icons-container">
+                  {category.skills.map((skill) => {
+                    const isObj = typeof skill === "object";
+                    const skillName = isObj ? skill.name : skill;
+                    const skillIcon = isObj ? skill.icon : null;
+                    return (
+                      <div key={skillName} className="bento-icon-badge">
+                        {skillIcon && <img src={skillIcon} alt={skillName} />}
+                        <span>{skillName}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
